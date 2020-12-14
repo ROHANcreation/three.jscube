@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+</head>
+<body bgcolor = "black"></bgcolor>
+    
+   <script src="three.js"></script>
+
+   <script>
+       var scene = new THREE.Scene();
+   
+            var camera = new THREE.PerspectiveCamera( 100, window.innerWidth / 
+            window.innerHeight, 0.1, 1000 );
+ 
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize( window.innerWidth, window.innerHeight);
+            document.body.appendChild( renderer.domElement );
+ 
+            var geometry = new THREE.CubeGeometry();
+            var material = new THREE.MeshNormalMaterial( 
+                { color: 555555} );
+            var Cube = new THREE.Mesh( geometry, material );
+            scene.add( Cube );
+ 
+            camera.position.z = 3;
+  
+            var animate = function () 
+            {
+                requestAnimationFrame( animate );
+ 
+                Cube.rotation.x += 0.10;
+                Cube.rotation.y += 0.04;
+ 
+                renderer.render( scene, camera );
+            };
+ 
+            animate();
+x
+
+   </script>
+</body>
+</html>
